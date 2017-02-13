@@ -4,3 +4,6 @@ npm-debug.log
 
 # Módulos do Node.js
 node_modules
+
+# Visual Studio Code Settings
+.vscode
