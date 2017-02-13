@@ -10,6 +10,7 @@ A micro-framework to quicky start your games and animations.
 ### Installation
 
 #### Install from local file
+Download [source](dist/quivy.js) or [minified source](dist/quivy.min.js).
 ```html
 <script src="quivy.min.js"></script>
 ```

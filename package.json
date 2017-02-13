@@ -1,13 +1,17 @@
 {
   "name": "quivy",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A micro-framework to quicky start your games and animations.",
-  "main": "./quivy.js",
+  "main": "./dist/quivy.js",
   "scripts": {
-    "build:webpack": "webpack ./src/index.js ./dist/quivy.js --output-library-target var --output-library quivy",
-    "build:babel": "babel ./dist/quivy.js --presets es2015 -o ./dist/quivy.js",
-    "build:uglify": "uglifyjs ./dist/quivy.js -o ./dist/quivy.min.js",
-    "build": "npm run build:webpack & npm run build:babel & npm run build:uglify"
+    "build:node:webpack": "webpack ./src/index.js ./dist/quivy.js --output-library-target commonjs2 --output-library quivy",
+    "build:node:babel": "babel ./dist/quivy.js --presets es2015 -o ./dist/quivy.js",
+    "build:node": "npm run build:node:webpack & npm run build:node:babel",
+    "build:browser:webpack": "webpack ./src/index.js ./dist/quivy.min.js --output-library-target var --output-library quivy",
+    "build:browser:babel": "babel ./dist/quivy.min.js --presets es2015 -o ./dist/quivy.min.js",
+    "build:browser:uglify": "uglifyjs ./dist/quivy.min.js -o ./dist/quivy.min.js",
+    "build:browser": "npm run build:browser:webpack & npm run build:browser:babel & npm run build:browser:uglify",
+    "build": "npm run build:node & npm run build:browser"
   },
   "repository": {
     "type": "git",

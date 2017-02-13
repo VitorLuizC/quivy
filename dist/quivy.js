@@ -1,6 +1,6 @@
 'use strict';
 
-var quivy =
+module.exports =
 /******/function (modules) {
   // webpackBootstrap
   /******/ // The module cache
