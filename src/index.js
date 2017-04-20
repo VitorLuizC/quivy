@@ -1,4 +1,4 @@
 import * as loader from './lib/loader.js';
-import * as animation from './lib/animation.js';
+import animate from './lib/animate.js';
 
-export { loader, animation };
+export { loader, animate };
