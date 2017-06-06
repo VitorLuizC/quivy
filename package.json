@@ -1,32 +1,33 @@
 {
   "name": "quivy",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A micro-framework to quicky start your games and animations.",
   "main": "./dist/quivy.js",
+  "module": "./src/index.js",
   "scripts": {
-    "build:node:webpack": "webpack ./src/index.js ./dist/quivy.js --output-library-target commonjs2 --output-library quivy",
-    "build:node:babel": "babel ./dist/quivy.js --presets es2015 -o ./dist/quivy.js",
-    "build:node": "npm run build:node:webpack & npm run build:node:babel",
-    "build:browser:webpack": "webpack ./src/index.js ./dist/quivy.min.js --output-library-target var --output-library quivy",
-    "build:browser:babel": "babel ./dist/quivy.min.js --presets es2015 -o ./dist/quivy.min.js",
-    "build:browser:uglify": "uglifyjs ./dist/quivy.min.js -o ./dist/quivy.min.js",
-    "build:browser": "npm run build:browser:webpack & npm run build:browser:babel & npm run build:browser:uglify",
-    "build": "npm run build:node & npm run build:browser"
+    "clean": "del-cli ./dist",
+    "build": "\"npm run clean\" && node ./build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VitorLuizC/quivy.git"
   },
-  "author": "Vitor Luiz Cavalcanti <vitorluizc@outlook.com>",
+  "author": {
+    "name": "Vitor Cavalcanti",
+    "email": "vitorluizc@outlook.com",
+    "url": "https://vitorluizc.github.io"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/VitorLuizC/quivy/issues"
   },
   "homepage": "https://github.com/VitorLuizC/quivy#readme",
   "devDependencies": {
-    "babel-cli": "^6.22.2",
-    "babel-preset-es2015": "^6.22.0",
-    "uglify-js": "^2.7.5",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-latest": "^6.24.1",
+    "cross-env": "^5.0.0",
+    "del-cli": "^1.0.0",
     "webpack": "^2.2.1"
   }
 }
