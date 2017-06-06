@@ -1,65 +1,62 @@
 # Quivy
-A micro-framework to quicky start your games and animations.
 
-## Features
-- Resource Loader
-- Animation Loop
+A micro-framework to quicky start your games and animations. Quivy provides some
+useful features like:
+
+- Create or select (using CSS selectors) a `<canvas>` element;
+- Load images and other resources;
+- Animate using a simple API.
+
+## Installation
+
+Of course You're using [Yarn](https://yarnpkg.com/). Right!?
+
+```sh
+yarn add quivy
+```
+
+You can also install using NPM.
+
+```sh
+npm i quivy
+```
 
 ## Usage
-
-### Installation
-
-#### Install from local file
-Download [source](dist/quivy.js) or [minified source](dist/quivy.min.js).
-```html
-<script src="quivy.min.js"></script>
-```
-
-#### Install from npm
-```js
-var quivy = require('quivy.js');
-// using ES6
-// import * as quivy from 'quivy.js';
-```
 
 ### Example
 
 ```js
-var loader = quivy.loader;
-var animation = quivy.animation;
-// using ES6
-// const { loader, animation } = quivy;
+import { canvas, loader, animate } from 'quivy';
+
+const { element, context } = canvas.select('#game');
+const animation = animate(draw)
+const person = {
+  x: 0,
+  y: 0
+};
 
 loader
   .add('Person', 'resource/Person.png')
-  .add('Tree', 'resource/Tree.png');
-
-loader
+  .add('Tree', 'resource/Tree.png')
   .load()
-  .then(setup);
+  .then(animation.start);
 
-function setup() {
-  var person = loader.cache['Person'];
-  var tree = loader.cache['Tree'];
+function draw() {
+  context.drawImage(loader.cache['Person'], person.x, person.y);
 
   ...
 
-  animation.start(play);
-
-  function play() {
-
-    ...
-
-    if (gameOver)
-      animation.stop();
-  }
+  if (isGameOver)
+    animation.stop();
 }
 ```
 
-## Modules
+## Quivy Modules
+
 ### Loader
 ```js
-...
+import { loader } from 'quivy';
+
 loader.add('Music', 'some_music.mp3', 'audio');
 
 loader
@@ -84,17 +81,36 @@ loader.onLoading = (resource, filesLoaded, totalFilesToLoad) => {
   resource.item; // Image/Audio/Video instance.
 };
 ```
-### Animation
+
+### Animate
 ```js
-...
+import { animate } from 'quivy';
+
+const animation = animate(() => sprite.position.x++)
+
 // Make a sprite move and stop after 3s
-animation.start(() => sprite.position.x++);
-setTimeout(() => animation.stop(), 3000);
+animation.start();
+setTimeout(animation.stop, 3000);
 ```
 
-## Contribution
-Fill free to open issues if you find a bug or ask a request.
-Make a pull request!
+### Canvas
 
-## Changelog
-1.0.0 - loader and animation modules.
+```html
+<canvas id="game1"></canvas>
+
+<div class="game2-wrapper"></div>
+```
+
+```js
+import { canvas } from 'quivy';
+
+const { context: ctx1 } = canvas.select('#game1', {
+  context: 'webgl',
+  width: 800, // Provide <canvas> size
+  height: 600
+});
+
+const { element: el2, context: ctx2 } = canvas.create('.game2-wrapper', {
+  context: '2d'
+});
+```
