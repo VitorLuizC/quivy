@@ -32,10 +32,10 @@
  */
 export function create(target, options) {
   const element = document.createElement('canvas')
-  const parent = element(target)
+  const parent = getElement(target)
 
   if (!(parent instanceof HTMLElement)) {
-    console.log(`Can't append <canvas> to "${element}"`)
+    console.log(`Can't append <canvas> to "${parent}"`)
     return
   }
 
@@ -51,7 +51,7 @@ export function create(target, options) {
  * @returns {Canvas}
  */
 export function select(target, options = {}) {
-  const element = element(target)
+  const element = getElement(target)
 
   if (!(element instanceof HTMLCanvasElement)) {
     console.log('Can\'t get <canvas>')
@@ -75,6 +75,6 @@ export function select(target, options = {}) {
  * @param {Target} target
  * @returns {HTMLElement}
  */
-function element(target) {
+function getElement(target) {
   return (typeof target === 'string') ? document.querySelector(target) : target
 }

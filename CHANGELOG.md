@@ -1,5 +1,8 @@
 # Quivy changelog
 
+## 2.0.1
+- Fix `canvas` can't get elements.
+
 ## 2.0.0
 - Removed `animation` module due to its side-effects and inability to handle
   multiple animations;
