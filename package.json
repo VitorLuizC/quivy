@@ -1,6 +1,6 @@
 {
   "name": "quivy",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A micro-framework to quicky start your games and animations.",
   "main": "./dist/quivy.js",
   "module": "./src/index.js",

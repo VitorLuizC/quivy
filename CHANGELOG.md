@@ -1,5 +1,8 @@
 # Quivy changelog
 
+## 2.0.2
+- Fix non-stopping animations.
+
 ## 2.0.1
 - Fix `canvas` can't get elements.
 

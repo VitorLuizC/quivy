@@ -49,8 +49,7 @@ function start() {
   if (this.id !== null) // Already running animation
     return false
 
-  this.id = requestAnimationFrame(this.animation)
-  run.call(this)
+  this.id = requestAnimationFrame(run.bind(this))
   return true
 }
 
@@ -60,7 +59,9 @@ function start() {
  */
 function run() {
   this.animation()
-  this.id = requestAnimationFrame(run.bind(this))
+
+  if (this.id !== null)
+    this.id = requestAnimationFrame(run.bind(this))
 }
 
 export default animate
