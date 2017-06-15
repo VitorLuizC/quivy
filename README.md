@@ -1,5 +1,7 @@
 # Quivy
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/VitorLuizC/quivy.svg)](https://greenkeeper.io/)
+
 A micro-framework to quicky start your games and animations. Quivy provides some
 useful features like:
 
