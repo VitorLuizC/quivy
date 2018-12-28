@@ -6,7 +6,7 @@
   "module": "./src/index.js",
   "scripts": {
     "clean": "del-cli ./dist",
-    "build": "\"npm run clean\" && node ./build"
+    "build": "\"yarn clean\" && node ./build"
   },
   "repository": {
     "type": "git",
