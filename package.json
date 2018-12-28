@@ -2,11 +2,15 @@
   "name": "quivy",
   "version": "2.0.2",
   "description": "A micro-framework to quicky start your games and animations.",
-  "main": "./dist/quivy.js",
-  "module": "./src/index.js",
+  "cdn": "dist/quivy.js",
+  "main": "dist/quivy.cjs.js",
+  "unpkg": "dist/quivy.js",
+  "module": "dist/quivy.es.js",
+  "jsdelivr": "dist/quivy.js",
+  "umd:main": "dist/quivy.js",
+  "files": ["dist/"],
   "scripts": {
-    "clean": "del-cli ./dist",
-    "build": "\"yarn clean\" && node ./build"
+    "build": "bili src/index.js --format es,cjs,umd,umd-min --js buble"
   },
   "repository": {
     "type": "git",
@@ -23,11 +27,6 @@
   },
   "homepage": "https://github.com/VitorLuizC/quivy#readme",
   "devDependencies": {
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-preset-latest": "^6.24.1",
-    "cross-env": "^5.0.0",
-    "del-cli": "^1.0.0",
-    "webpack": "^2.2.1"
+    "bili": "^3.4.2"
   }
 }

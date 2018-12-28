@@ -1,6 +1,0 @@
-# Build sources
-build
-
-# Project meta files and settings
-.babelrc
-.editorconfig
