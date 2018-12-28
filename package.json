@@ -1,6 +1,6 @@
 {
   "name": "quivy",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "A micro-framework to quicky start your games and animations.",
   "cdn": "dist/quivy.js",
   "main": "dist/quivy.cjs.js",
@@ -10,7 +10,8 @@
   "umd:main": "dist/quivy.js",
   "files": ["dist/"],
   "scripts": {
-    "build": "bili src/index.js --format es,cjs,umd,umd-min --js buble"
+    "build": "bili src/index.js --format es,cjs,umd,umd-min --js buble",
+    "prepare": "yarn build"
   },
   "repository": {
     "type": "git",

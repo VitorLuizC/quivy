@@ -1,5 +1,10 @@
 # Quivy changelog
 
+## 2.1.0
+- Generate CommonJS, ESM and UMD bundles (fix [#4](https://github.com/VitorLuizC/quivy/issues/4));
+- Fix vulnerability on dependencies;
+- Use Yarn instead of NPM;
+
 ## 2.0.2
 - Fix non-stopping animations.
 
